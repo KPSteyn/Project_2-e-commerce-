@@ -1,0 +1,17 @@
+html{ 
+	background: radial-gradient(circle, #e8ffe9, #ffe8f2);
+	background-size: 2000% 2000%;
+	animation: BackgroundGradient 10s ease infinite;
+	border-collapse: collapse;
+	height:100%;
+}
+
+@keyframes BackgroundGradient{
+	0% {background-position: 0% 50%;
+	}
+	50% {background-position: 100% 50%;
+	}
+	100% {background-position: 0% 50%;
+	}
+}
+

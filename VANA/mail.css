@@ -1,0 +1,70 @@
+html{ /*This will describe the layout of desktop devices*/
+	background-image: url('design/checkout/desktop/checkoutbg.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}
+
+#bottomArea{
+
+    float: right;
+    width: 95%;
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-color: black;
+    border-width: 1.5px;
+    right: 2.5%;
+    bottom: 5%;
+    position: absolute;
+    height: 60%;
+    overflow: auto;
+    background-color: #303030;
+
+
+    text-align: center;
+    align-items: center; /* align vertical */
+    justify-content: center; /* align horizontal */
+}
+
+table{
+	width: 100%;
+	table-layout: fixed;
+	max-width: 100%;
+	text-align:center;
+	border: solid;
+	background: radial-gradient(circle, #e8ffe9, #ffe8f2);
+	background-size: 2000% 2000%;
+	animation: BackgroundGradient 10s ease infinite;
+	border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+@keyframes BackgroundGradient{
+	0% {background-position: 0% 50%;
+	}
+	50% {background-position: 100% 50%;
+	}
+	100% {background-position: 0% 50%;
+	}
+}
+
+@media (max-width: 768px){ /*This will describe the layout of tablet devices*/
+	html{
+	background-image: url('design/checkout/tablet/checkoutbg.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}
+}
+
+@media (max-width: 450px){ /*This will describe the layout of phone devices*/
+	html{
+	background-image: url('design/checkout/phone/checkoutbg.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}
+}

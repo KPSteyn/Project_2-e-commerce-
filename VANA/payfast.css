@@ -1,0 +1,6 @@
+html{ /*This will describe the layout of desktop devices*/
+	background-image: url('design/payfast.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}

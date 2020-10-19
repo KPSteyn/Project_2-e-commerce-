@@ -1,0 +1,103 @@
+Create Database Vana;
+Use Vana;
+CREATE TABLE  Product(
+  ProductIdentifier INTEGER(12) NOT NULL AUTO_INCREMENT,
+  Cost DOUBLE(10,2) NOT NULL,
+  Description VARCHAR(1000) NOT NULL,
+  Name VARCHAR(300) NOT NULL,
+  StockAvailable BOOLEAN NOT NULL DEFAULT 1,
+  PRIMARY KEY(ProductIdentifier)
+) ENGINE = InnoDB;
+
+USE Vana;
+CREATE TABLE  Purchase(
+  PurchaseIdentifier INTEGER(12) NOT NULL AUTO_INCREMENT,
+  FirstName VARCHAR(30) NOT NULL,
+  LastName VARCHAR(30) NOT NULL,
+  Address VARCHAR(20) NOT NULL,
+  Residence VARCHAR(70) NOT NULL,
+  City VARCHAR(70) NOT NULL,
+  Country VARCHAR(70) NOT NULL,
+  PostalCode VARCHAR(70) NOT NULL,
+  Phonenumber VARCHAR(70) NOT NULL,
+  Email VARCHAR(70) NOT NULL,
+  DatePurchased DATE NOT NULL,
+  PRIMARY KEY(PurchaseIdentifier)
+) ENGINE = InnoDB;
+
+USE Vana;
+CREATE TABLE PromotionEmailingList(
+  EmailIdentifier INTEGER(12) NOT NULL AUTO_INCREMENT,
+  EmailAddress VARCHAR(70) NOT NULL,
+  PRIMARY KEY(EmailIdentifier)
+) ENGINE = InnoDB;
+
+
+USE Vana;
+CREATE TABLE ProductPurchase(
+  PPIdentifier INTEGER(12) NOT NULL AUTO_INCREMENT,
+  PurchaseID INTEGER(12) NOT NULL,
+  ProductID INTEGER(12) NOT NULL,
+  ItemCount INTEGER(3) NOT NULL,
+  CONSTRAINT FOREIGN KEY (PurchaseID) REFERENCES Purchase (PurchaseIdentifier) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT FOREIGN KEY (ProductID) REFERENCES Product (ProductIdentifier) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY(PPIdentifier)
+) ENGINE = InnoDB;
+
+Use Vana;
+CREATE TABLE ShippingEmailConfirmation(
+  ConfirmationIdentifier INTEGER(12) NOT NULL AUTO_INCREMENT,
+  Content VARCHAR(2000)NOT NULL,
+  PurchaseID INTEGER(12) NOT NULL,
+  Sent BOOLEAN NOT NULL DEFAULT 0,
+  DateSent DATE NULL,
+  PRIMARY KEY(ConfirmationIdentifier),
+  CONSTRAINT FOREIGN KEY (PurchaseID) REFERENCES Purchase (PurchaseIdentifier)
+  ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB;
+
+
+Use Vana;
+CREATE TABLE admin(
+  AdminIdentifier INTEGER(3) NOT NULL AUTO_INCREMENT,
+  vanaAdminName VARCHAR(2000)NOT NULL,
+  adminPassword VARCHAR(50) NOT NULL,
+  PRIMARY KEY(AdminIdentifier)
+) ENGINE = InnoDB;
+
+INSERT INTO `admin` (`vanaAdminName`, `adminPassword`) VALUES ("kevin","kevinpassword"); 
+
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '210.00', 'Our triple-whipped, creamy-luxurious, multi-purpose moisturiser is made from a premium blend of organic shea and mango butter and will nourish, protect and heal your hair and skin.', 'Everything Butter (100mls)', '1'), (NULL, '30.00', 'Our triple-whipped, creamy-luxurious, multi-purpose moisturiser is made from a premium blend of organic shea and mango butter and will nourish, protect and heal your hair and skin.', 'Everything Butter (5mls)', '1');
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '380.00', 'Our ultra-nourishing MakeMeCurly styling cream is suitable for thin, softer hair & thick, coarser hair and gives flexible medium hold and definition to your unique natural curl pattern for twist-outs, braid-outs, and roller-sets. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Curly Moisturising Hibiscus Curl Defining Styler with Argan Oil & Shea Butter (500mls)', '1'), (NULL, '210.00', 'Our ultra-nourishing MakeMeCurly styling cream is suitable for thin, softer hair & thick, coarser hair and gives flexible medium hold and definition to your unique natural curl pattern for twist-outs, braid-outs, and roller-sets. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Curly Moisturising Hibiscus Curl Defining Styler with Argan Oil & Shea Butter (250mls)', '1');
+
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '110.00', 'Our ultra-nourishing MakeMeCurly styling cream is suitable for thin, softer hair & thick, coarser hair and gives flexible medium hold and definition to your unique natural curl pattern for twist-outs, braid-outs, and roller-sets. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Curly Moisturising Hibiscus Curl Defining Styler with Argan Oil & Shea Butter (125mls)', '1'), (NULL, '390.00', 'Our intensive MakeMeStrong mask conditions deeply & revives dry, damaged hair to reveal soft, moisturised, shiny, bouncy curls. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Strong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (500mls)', '1');
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '220.00', 'Our intensive MakeMeStrong mask conditions deeply & revives dry, damaged hair to reveal soft, moisturised, shiny, bouncy curls. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Strong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (250mls)', '1'), (NULL, '120.00', 'Our intensive MakeMeStrong mask conditions deeply & revives dry, damaged hair to reveal soft, moisturised, shiny, bouncy curls. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Strong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (125mls)', '1');
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '210.00', 'Our MakeMeSoft moisturising leave-in curl primer is fortified with a botanical blend of shea butter, hibiscus extract & rich argan and avocado oils to nourish and promote soft manageable hair safe from breakage. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Soft Intense Moisture Hibiscus Leave-In Curl Primer with Avocado & Grapefruit Oil (250mls)', '1'), (NULL, '110.00', 'Our MakeMeSoft moisturising leave-in curl primer is fortified with a botanical blend of shea butter, hibiscus extract & rich argan and avocado oils to nourish and promote soft manageable hair safe from breakage. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Soft Intense Moisture Hibiscus Leave-In Curl Primer with Avocado & Grapefruit Oil (125mls)', '1');
+
+
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '220.00', 'Our sulphate-free, kind cleansing, nourishing MakeMeClean shampoo removes build-up, gently exfoliates your scalp & hydrates the hair. Ideal for all afro textured coily, curly or wavy natural hair. ', 'Make Me Clean Kind Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (300mls)', '1'), (NULL, '60.00', 'Our sulphate-free, kind cleansing, nourishing MakeMeClean shampoo removes build-up, gently exfoliates your scalp & hydrates the hair. Ideal for all afro textured coily, curly or wavy natural hair.', 'Make Me Clean Kind Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (50mls)', '1');
+
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '290.00', 'MakeMeClean Kind-Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (50mls). MakeMeStrong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (125mls). MakeMeSoft Intense Moisture Hibiscus Leave-In Curl Primer with Avocado & Grapefruit Oil (125mls). MakeMeCurly Moisturising Hibiscus Curl Defining & Styling Cream with Argan Oil & Shea Butter (125mls). VanaNaturals 100% Linen Eco Bag', 'On The Go Kit (with eco bag)', '1'), (NULL, '380.00', 'MakeMeClean Kind-Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (300mls). MakeMeStrong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (250mls).', 'Curl Basics Kit', '1');
+
+
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '550.00', 'MakeMeClean Kind-Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (300mls). MakeMeStrong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (250mls). MakeMeSoft Intense Moisture Hibiscus Leave-In Curl Primer with Avocado & Grapefruit Oil (250mls).', 'Curl Awakening Kit', '1'), (NULL, '750.00', 'MakeMeClean Kind-Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (300mls). MakeMeStrong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (250mls). MakeMeSoft Intense Moisture Hibiscus Leave-In Curl Primer with Avocado & Grapefruit Oil (250mls). MakeMeCurly Moisturising Hibiscus Curl Defining & Styling Cream with Argan Oil & Shea Butter (250mls).', 'Curl Expression Kit', '1');
+
+
+INSERT INTO `product` (`ProductIdentifier`, `Cost`, `Description`, `Name`, `StockAvailable`) VALUES (NULL, '1000.00', 'MakeMeClean Kind-Cleansing Hibiscus Shampoo with Aloe Vera & Inulin (300mls). MakeMeStrong Deep Conditioning Hibiscus Mask with Argan & Black Cumin Oil (500mls). MakeMeSoft  Intense Moisture Hibiscus Leave-In Curl Primer with Avocado & Grapefruit Oil (250mls). MakeMeCurly Moisturising Hibiscus Curl Defining & Styling Cream with Argan Oil & Shea Butter (500mls). VanaNaturals EverythingButter: Triple Whipped Shea-Mango Multi-Purpose Moisturiser (100mls). VanaNaturals 100% Linen Eco Bag (Large).', 'Deluxe Kit (with eco bag)', '1');
+
+
+
+
+
+
+
+
+

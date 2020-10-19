@@ -1,0 +1,144 @@
+html{ /*This will describe the layout of desktop devices*/
+	background-image: url('design/products/desktop/productsbg.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}
+body{
+	width:100%;
+	height:100%;
+}
+
+footer{
+    background-color:#bdc9d5;
+    height: 3.9%;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    position: absolute;
+    text-shadow: 2.1px 0.8px 1.7px #c8b5b9;
+    color: #000000;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    vertical-align: middle;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+.products{
+	position: relative;
+	overflow: hidden;
+	box-sizing:border-box;
+	vertical-align: middle;
+ 	display: flex;
+  	flex-wrap: wrap;
+	float:left;
+	 text-align: center;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+#Total{
+	color: #000000;
+	font-size:45px;
+}
+
+.descriptionproduct{
+	background-color:#c7ced9;
+	height:550px;
+	width: 400px;
+	overflow-y: scroll;
+	padding-right: 17px;
+	padding-bottom: 17px;
+	padding-top: 17px;
+	padding-left:17px;
+	font-size: 30px;
+	align-items: center; /* align vertical */
+	justify-content: center; /* align horizontal */
+ 	display: flex;
+  	flex-wrap: wrap;
+	float:left;
+	vertical-align: middle;
+	text-align: center;
+  	margin-top: 17px;
+  	margin-bottom:17px; 
+	margin-right: 17px;
+	margin-left:17px;
+}
+.productphoto{	
+	max-width:200px;
+	max-height:200px;
+}
+
+#bottomArea{
+
+    float: right;
+    width: 95%;
+    margin: 0;
+    padding: 0;
+    border-style: solid;
+    border-color: black;
+    border-width: 1.5px;
+    right: 2.5%;
+    bottom: 5%;
+    position: absolute;
+    height: 60%;
+    overflow: auto;
+    background-color: #303030;
+
+
+    text-align: center;
+    align-items: center; /* align vertical */
+    justify-content: center; /* align horizontal */
+}
+
+@media (max-width: 768px){ /*This will describe the layout of tablet devices*/
+	html{
+	background-image: url('design/products/tablet/productsbg.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}
+}
+
+@media (max-width: 450px){ /*This will describe the layout of phone devices*/
+	html{
+	background-image: url('design/products/phone/productsbg.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+ 	background-attachment: fixed;
+}
+}
+.shopButton{
+background-color: #35393c;
+  position: absolute;
+  right:2.5%;
+  top:16%;
+  width:30%;
+  height:8%;
+  border: 1px solid #d99c9d;
+  color: #dbe985;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.homeButton{
+background-color: #cdbdc0;
+  position: absolute;
+  left:2.5%;
+  top:22.5%;
+  width:30%;
+  height:8%;
+  color: white;
+  border: 1px solid #d99c9d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
